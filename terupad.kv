@@ -1,0 +1,79 @@
+TeruPadRootLayout:
+
+<TeruPadRootLayout>:
+    orientation: 'vertical'
+    ActionBar:
+        size_hint_y: 0.1
+        ActionView:
+            ActionPrevious:
+                title: 'かなカナキーボード'
+                with_previous: False
+            ActionButton:
+                text: 'コピー'
+                on_press: app.press_copy()
+            ActionButton:
+                text: 'けす'
+                on_press: app.press_clear()
+
+    TeruPadTextViewLayout:
+        id: text_view
+        size_hint_y: 0.15
+        size_hint_min_y: 40
+
+    TeruPadModeButtonLayout:
+        size_hint_y: 0.15
+
+    TeruPadKeyScreenManager:
+        id: terupad_sm
+
+<TeruPadTextViewLayout>:
+    orientation: 'horizontal'
+    TextInput:
+        id: text_input
+        font_size: 24
+        multiline: False
+
+<TeruPadModeButtonLayout>:
+    orientation: 'horizontal'
+    Button:
+        text: 'ひらがな'
+        background_color: (0,0,1,1)
+        # ackground_normal: ''
+        on_press: app.press_hiragana()
+    Button:
+        text: 'カタカナ'
+        background_color: (1,0,0,1)
+        # background_normal: ''
+        on_press: app.press_katakana()
+    Button:
+        text: 'きごう'
+        background_color: (0,1,0,1)
+        # background_normal: ''
+        on_press: app.press_kigou()
+
+<TeruPadKeyScreenManager>:
+    TeruPadHiraganaScreen:
+        id: hiragana_screen
+        name: 'hiragana'
+    TeruPadHiragana2Screen:
+        id: hiragana2_screen
+        name: 'hiragana2'
+    TeruPadKatakanaScreen:
+        id: katakana_screen
+        name: 'katakana'
+    TeruPadKatakana2Screen:
+        id: katakana2_screen
+        name: 'katakana2'
+    TeruPadKigouScreen:
+        id: kigou_screen
+        name: 'kigou'
+
+<TeruPadHiraganaScreen>:
+
+<TeruPadKatakanaScreen>:
+
+<TeruPadHiragana2Screen>:
+
+<TeruPadKatakana2Screen>:
+
+<TeruPadKigouScreen>:
