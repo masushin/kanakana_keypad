@@ -38,71 +38,41 @@ class TeruPadModeButtonLayout(BoxLayout):
 class TeruPadKeyScreenManager(ScreenManager):
     pass
 
+def AddKeyPadWidgets(key_letters):
+    box_layout = BoxLayout(orientation='vertical')
+    for line in key_letters:
+        grid_layout = GridLayout(cols=5)
+        for letter in list(line):
+            button = Button(text=letter)
+            button.bind(on_press=App.get_running_app().press_key)
+            grid_layout.add_widget(button)
+        box_layout.add_widget(grid_layout)
+    return box_layout
+
 class TeruPadHiraganaScreen(Screen):
     def __init__(self, **kwargs):
         super(TeruPadHiraganaScreen, self).__init__(**kwargs)
-        box_layout = BoxLayout(orientation='vertical')
-        self.add_widget(box_layout)
-        for line in hiragana:
-            grid_layout = GridLayout(cols=5)
-            for letter in list(line):
-                button = Button(text=letter)
-                button.bind(on_press=App.get_running_app().press_key)
-                grid_layout.add_widget(button)
-            box_layout.add_widget(grid_layout)
+        self.add_widget(AddKeyPadWidgets(hiragana))
 
 class TeruPadHiragana2Screen(Screen):
     def __init__(self, **kwargs):
         super(TeruPadHiragana2Screen, self).__init__(**kwargs)
-        box_layout = BoxLayout(orientation='vertical')
-        self.add_widget(box_layout)
-        for line in hiragana2:
-            grid_layout = GridLayout(cols=5)
-            for letter in list(line):
-                button = Button(text=letter)
-                button.bind(on_press=App.get_running_app().press_key)
-                grid_layout.add_widget(button)
-            box_layout.add_widget(grid_layout)
+        self.add_widget(AddKeyPadWidgets(hiragana2))
 
 class TeruPadKatakanaScreen(Screen):
     def __init__(self, **kwargs):
         super(TeruPadKatakanaScreen, self).__init__(**kwargs)
-        box_layout = BoxLayout(orientation='vertical')
-        self.add_widget(box_layout)
-        for line in katakana:
-            grid_layout = GridLayout(cols=5)
-            for letter in list(line):
-                button = Button(text=letter)
-                button.bind(on_press=App.get_running_app().press_key)
-                grid_layout.add_widget(button)
-            box_layout.add_widget(grid_layout)
+        self.add_widget(AddKeyPadWidgets(katakana))
 
 class TeruPadKatakana2Screen(Screen):
     def __init__(self, **kwargs):
         super(TeruPadKatakana2Screen, self).__init__(**kwargs)
-        box_layout = BoxLayout(orientation='vertical')
-        self.add_widget(box_layout)
-        for line in katakana2:
-            grid_layout = GridLayout(cols=5)
-            for letter in list(line):
-                button = Button(text=letter)
-                button.bind(on_press=App.get_running_app().press_key)
-                grid_layout.add_widget(button)
-            box_layout.add_widget(grid_layout)
+        self.add_widget(AddKeyPadWidgets(katakana2))
 
 class TeruPadKigouScreen(Screen):
     def __init__(self, **kwargs):
         super(TeruPadKigouScreen, self).__init__(**kwargs)
-        box_layout = BoxLayout(orientation='vertical')
-        self.add_widget(box_layout)
-        for line in kigou:
-            grid_layout = GridLayout(cols=5)
-            for letter in list(line):
-                button = Button(text=letter)
-                button.bind(on_press=App.get_running_app().press_key)
-                grid_layout.add_widget(button)
-            box_layout.add_widget(grid_layout)
-
+        self.add_widget(AddKeyPadWidgets(kigou))
 
 class TeruPadApp(App):
     def press_hiragana(self):
