@@ -78,16 +78,12 @@ class TeruPadApp(App):
     def press_hiragana(self):
         if self.root.ids.terupad_sm.current == 'hiragana':
             self.root.ids.terupad_sm.current = 'hiragana2'
-        elif self.root.ids.terupad_sm.current == 'hiragana2':
-            self.root.ids.terupad_sm.current = 'hiragana'
         else:
             self.root.ids.terupad_sm.current = 'hiragana'
             
     def press_katakana(self):
         if self.root.ids.terupad_sm.current == 'katakana':
             self.root.ids.terupad_sm.current = 'katakana2'
-        elif self.root.ids.terupad_sm.current == 'katakana2':
-            self.root.ids.terupad_sm.current = 'katakana'
         else:
             self.root.ids.terupad_sm.current = 'katakana'
 
